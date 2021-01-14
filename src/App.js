@@ -15,6 +15,7 @@ class App extends Component {
             },
         } = await axios.get("https://yts-proxy.nomadcoders1.now.sh/list_movies.json?sort_by=rating");
         this.setState({ movies, isLoading: false });
+        console.log(movies);
     };
     //render호출되고 호출됨
     componentDidMount() {
@@ -38,6 +39,7 @@ class App extends Component {
                                 year={movie.year}
                                 summary={movie.summary}
                                 poster={movie.medium_cover_image}
+                                genres={movie.genres}
                             />
                         ))}
                     </div>
